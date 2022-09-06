@@ -1,0 +1,29 @@
+@import "./utils";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include resetMargin;
+  font-family: "Roboto", sans-serif;
+  font-size: map-get($sizes, base);
+  font-weight: map-get($weights, base);
+}
+
+ul,
+li {
+  @include resetMargin;
+  list-style-type: none;
+}
+
+a {
+  color: map-get($colors, snow);
+  text-decoration: none;
+  &:hover,
+  &:visited,
+  &:active {
+    color: map-get($colors, snow);
+    text-decoration: none;
+  }
+}

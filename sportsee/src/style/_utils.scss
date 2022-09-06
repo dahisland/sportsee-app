@@ -1,0 +1,31 @@
+$colors: (
+  blood: #ff0101,
+  night: #000,
+  snow: #fff,
+
+  sea: #4ab8ff,
+  gold: #fdcc0c,
+  candy: #fd5181,
+  fire: #ff0000,
+);
+
+$sizes: (
+  xs: 12px,
+  s: 14px,
+  m: 16px,
+  base: 18px,
+  l: 20px,
+  xl: 24px,
+  max: 48px,
+);
+
+$weights: (
+  slim: 400,
+  base: 500,
+  boldy: 700,
+);
+
+@mixin resetMargin {
+  margin: 0;
+  padding: 0;
+}
