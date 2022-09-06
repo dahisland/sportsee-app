@@ -9,10 +9,20 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: map-get($sizes, base);
   font-weight: map-get($weights, base);
+  line-height: map-get($sizes, xl);
+}
+
+main {
+  @include resetMargin;
+  width: 100%;
+  padding: 50px 80px 50px 197px;
+  font-size: map-get($sizes, base);
 }
 
 ul,
-li {
+li,
+h1,
+p {
   @include resetMargin;
   list-style-type: none;
 }

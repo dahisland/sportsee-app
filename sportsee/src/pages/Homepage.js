@@ -7,6 +7,14 @@ const Homepage = () => {
     <div className="page_container">
       <HorizontalNav />
       <VerticalNav />
+      <main className="pageHome_main">
+        <section className="pageHomeMain_welcome">
+          <h1>
+            Bonjour <span>Name</span>
+          </h1>
+          <p>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
+        </section>
+      </main>
     </div>
   );
 };
