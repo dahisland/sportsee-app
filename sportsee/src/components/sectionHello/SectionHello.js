@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const SectionHello = ({ name }) => {
   return (
-    <section className="pageHomeMain_hello">
+    <section className="mainSection_hello">
       <h1>
         Bonjour <span>{name}</span>
       </h1>

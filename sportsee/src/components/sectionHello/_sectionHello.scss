@@ -1,7 +1,8 @@
 @import "../../style/utils";
 
 // section welcome
-.pageHomeMain_hello {
+.mainSection_hello {
+  @include mainPaddingContent;
   margin-bottom: 60px;
   h1 {
     font-size: map-get($sizes, max);

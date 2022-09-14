@@ -6,6 +6,31 @@
 }
 
 .pageHome_main {
-  padding: 50px 80px 50px 197px;
+  padding: 50px 0px 50px 117px;
   font-size: map-get($sizes, base);
+}
+
+.mainSection_statistics {
+  @include mainPaddingContent;
+  display: flex;
+  justify-content: space-between;
+
+  // container for charts
+  .statistics_charts {
+    width: 72%;
+    height: fit-content;
+    .charts_flexboxContainer {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  }
+
+  // container for key figures cards
+  .statistics_keyFigures {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }

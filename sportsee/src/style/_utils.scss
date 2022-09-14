@@ -33,3 +33,7 @@ $weights: (
   margin: 0;
   padding: 0;
 }
+
+@mixin mainPaddingContent {
+  padding: 0 6%;
+}

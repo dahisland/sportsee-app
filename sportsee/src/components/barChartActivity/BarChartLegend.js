@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const BarChartLegend = ({ payload }) => {
-  console.log(payload);
   return (
     <figcaption className="barChartActivity_figcaption">
       <h2>Activité quotidienne</h2>

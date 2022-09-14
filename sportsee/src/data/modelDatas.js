@@ -24,12 +24,33 @@ export class modelUserMainData {
         age: this.age,
       },
       todayScore: this.todayScore,
-      keyData: {
-        calorieCount: this.calorieCount,
-        proteinCount: this.proteinCount,
-        carbohydrateCount: this.carbohydrateCount,
-        lipidCount: this.lipidCount,
-      },
+      keyData: [
+        {
+          label: "Calories",
+          count: this.calorieCount.toLocaleString("en-US") + "kCal",
+          icon: "calories-icon.svg",
+        },
+        {
+          label: "Proteines",
+          count: this.proteinCount + "g",
+          icon: "protein-icon.svg",
+        },
+        {
+          label: "Glucides",
+          count: this.carbohydrateCount + "g",
+          icon: "carbs-icon.svg",
+        },
+        {
+          label: "Lipides",
+          count: this.lipidCount + "g",
+          icon: "lipid-icon.svg",
+        },
+
+        // calorieCount: this.calorieCount,
+        // proteinCount: this.proteinCount,
+        // carbohydrateCount: this.carbohydrateCount,
+        // lipidCount: this.lipidCount,
+      ],
     };
     return objMainData;
   }
@@ -65,7 +86,6 @@ export class modelActivityData {
       return el;
     });
 
-    console.log(objActivityData);
     return objActivityData;
   }
 }
