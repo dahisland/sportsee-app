@@ -1,5 +1,11 @@
 @import "./reset";
-@import "./style-components/horizontalNav";
-@import "./style-components/verticalNav";
-@import "./style-pages/homepage";
-@import "./style-pages/error404";
+@import "../components/horizontalNav/horizontalNav";
+@import "../components/verticalNav/verticalNav";
+@import "../components/sectionHello/sectionHello";
+@import "../components/barChartActivity/barChartActivity";
+@import "../pages/login/loginPage";
+@import "../pages/homepage/homepage";
+@import "../pages/profile/profile";
+@import "../pages/setting/setting";
+@import "../pages/community/community";
+@import "../pages/error404/error404";

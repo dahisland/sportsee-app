@@ -1,8 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
-import HorizontalNav from "../components/HorizontalNav";
-import VerticalNav from "../components/VerticalNav";
+import HorizontalNav from "../../components/horizontalNav/HorizontalNav";
+import VerticalNav from "../../components/verticalNav/VerticalNav";
 
 const Error404 = () => {
   return (

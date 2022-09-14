@@ -1,0 +1,11 @@
+@import "../../style/utils";
+
+.page_container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.pageHome_main {
+  padding: 50px 80px 50px 197px;
+  font-size: map-get($sizes, base);
+}

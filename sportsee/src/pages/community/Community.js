@@ -1,6 +1,6 @@
 import React from "react";
-import HorizontalNav from "../components/HorizontalNav";
-import VerticalNav from "../components/VerticalNav";
+import HorizontalNav from "../../components/horizontalNav/HorizontalNav";
+import VerticalNav from "../../components/verticalNav/VerticalNav";
 
 const Community = () => {
   return (

@@ -15,8 +15,6 @@ body {
 main {
   @include resetMargin;
   width: 100%;
-  padding: 50px 80px 50px 197px;
-  font-size: map-get($sizes, base);
 }
 
 ul,

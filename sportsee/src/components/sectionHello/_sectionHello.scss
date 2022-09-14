@@ -1,12 +1,8 @@
-@import "../utils";
-
-.page_container {
-  position: relative;
-  min-height: 100vh;
-}
+@import "../../style/utils";
 
 // section welcome
-.pageHomeMain_welcome {
+.pageHomeMain_hello {
+  margin-bottom: 60px;
   h1 {
     font-size: map-get($sizes, max);
     font-weight: map-get($weights, base);
