@@ -5,11 +5,19 @@ import VerticalNav from "../../components/verticalNav/VerticalNav";
 import SectionHello from "../../components/sectionHello/SectionHello";
 import KeyFiguresCard from "../../components/keyFiguresCard/KeyFiguresCard";
 import BarChartActivity from "../../components/barChartActivity/BarChartActivity";
-import { getMainUserData, getActivityData } from "../../data/getDataAPI";
+import {
+  getMainUserData,
+  getActivityData,
+  getSessionsData,
+} from "../../data/getDataAPI";
 import {
   getMainMockedData,
   getActivityMockedData,
+  getSessionsMockedData,
+  getPerfMockedData,
 } from "../../data/getDataMocked";
+import LineChartSessions from "../../components/lineChartSessions/LineChartSessions";
+import RadarChartPerf from "../../components/radarChartPerformance/RadarChartPerf";
 
 const Homepage = () => {
   const { userID } = useParams();
@@ -41,6 +49,33 @@ const Homepage = () => {
     ],
   });
 
+  const [dataSessions, setDataSessions] = useState({
+    userId: undefined,
+    sessions: [
+      {
+        day: undefined,
+        dayLabel: undefined,
+        sessionLength: undefined,
+      },
+    ],
+  });
+
+  const [dataPerf, setDataPerf] = useState({
+    userId: undefined,
+    kind: [[undefined, undefined]],
+    data: [
+      {
+        value: undefined,
+        kind: [undefined, undefined],
+      },
+      {
+        value: undefined,
+        kind: undefined,
+        subject: undefined,
+      },
+    ],
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
     // USE DATA CALLED BY API
@@ -54,35 +89,46 @@ const Homepage = () => {
     //   const data = await getActivityData(userID);
     //   setDataActivity(data);
     // }
+    // async function updateSessionsData() {
+    //   getSessionsData(userID);
+    //   const data = await getSessionsData(userID);
+    //   setDataSessions(data);
+    // }
     // updateMainData();
     // updateActivityData();
+    // updateSessionsData();
 
     // USE DATA MOCKED
     setDataUser(getMainMockedData(userID));
     setDataActivity(getActivityMockedData(userID));
+    setDataSessions(getSessionsMockedData(userID));
+    setDataPerf(getPerfMockedData(userID));
   }, [userID]);
+
+  console.log(dataPerf);
 
   return (
     <div className="page_container">
       <HorizontalNav />
       <VerticalNav />
+
       <main className="pageHome_main">
         <SectionHello name={dataUser.userInfos.firstName} />
+
         <section className="mainSection_statistics">
           <article className="statistics_charts">
             <div className="charts_flexboxContainer">
               <BarChartActivity dataActivity={dataActivity}></BarChartActivity>
-              <div
-                id="linechart"
-                style={{ width: "32%", background: "green", height: "263px" }}
-              ></div>
-              <div
-                id="radarchart"
-                style={{ width: "32%", background: "green", height: "263px" }}
-              ></div>
+
+              <LineChartSessions
+                dataSessions={dataSessions}
+              ></LineChartSessions>
+
+              <RadarChartPerf dataPerf={dataPerf}></RadarChartPerf>
+
               <div
                 id="radialbarchart"
-                style={{ width: "32%", background: "green", height: "263px" }}
+                style={{ width: "32%", background: "green", height: "200px" }}
               ></div>
             </div>
           </article>
@@ -96,18 +142,6 @@ const Homepage = () => {
                 key={item.label + index}
               />
             ))}
-            {/* <div
-              style={{ width: "100%", background: "green", height: "124px" }}
-            ></div>
-            <div
-              style={{ width: "100%", background: "green", height: "124px" }}
-            ></div>
-            <div
-              style={{ width: "100%", background: "green", height: "124px" }}
-            ></div>
-            <div
-              style={{ width: "100%", background: "green", height: "124px" }}
-            ></div> */}
           </article>
         </section>
       </main>

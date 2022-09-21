@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const BarChartTooltip = ({ payload }) => {
   return (
-    <ul className="toolTip">
+    <ul className="activity_toolTip">
       {payload.map((entry, index) => (
         <li key={`itemTooltip-${index}`}>
           {entry.value}

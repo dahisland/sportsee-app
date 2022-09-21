@@ -9,6 +9,7 @@
 }
 
 // Legend Barchart
+
 .barChartActivity_figcaption {
   display: flex;
   justify-content: space-between;
@@ -47,8 +48,9 @@
   }
 }
 
-// Tooltip BarChart
-ul.toolTip {
+// Customized tooltip BarChart
+
+ul.activity_toolTip {
   outline: none;
   background-color: #e60000;
   color: #fff;

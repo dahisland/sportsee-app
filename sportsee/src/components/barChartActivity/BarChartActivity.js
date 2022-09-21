@@ -15,7 +15,7 @@ import BarChartTooltip from "./BarChartTooltip";
 import BarChartCursor from "./BarChartCursor";
 
 const BarChartActivity = ({ dataActivity }) => {
-  // Variables for Yaxis weight ticks
+  // Variables for right Yaxis weight ticks
   let minWeight = dataActivity.sessions[0].kilogram;
   let maxWeight =
     dataActivity.sessions[dataActivity.sessions.length - 1].kilogram;

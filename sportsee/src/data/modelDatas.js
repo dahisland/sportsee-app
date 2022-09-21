@@ -1,18 +1,18 @@
 export class modelUserMainData {
-  constructor(resDataUserMain) {
-    this.id = parseInt(resDataUserMain.id);
-    this.firstName = String(resDataUserMain.userInfos.firstName);
-    this.lastName = String(resDataUserMain.userInfos.lastName);
-    this.age = parseInt(resDataUserMain.userInfos.age);
-    resDataUserMain.score
-      ? (this.todayScore = parseFloat(resDataUserMain.score))
-      : (this.todayScore = parseFloat(resDataUserMain.todayScore));
-    this.calorieCount = parseFloat(resDataUserMain.keyData.calorieCount);
-    this.proteinCount = parseFloat(resDataUserMain.keyData.proteinCount);
+  constructor(apiDataUserMain) {
+    this.id = parseInt(apiDataUserMain.id);
+    this.firstName = String(apiDataUserMain.userInfos.firstName);
+    this.lastName = String(apiDataUserMain.userInfos.lastName);
+    this.age = parseInt(apiDataUserMain.userInfos.age);
+    apiDataUserMain.score
+      ? (this.todayScore = parseFloat(apiDataUserMain.score))
+      : (this.todayScore = parseFloat(apiDataUserMain.todayScore));
+    this.calorieCount = parseFloat(apiDataUserMain.keyData.calorieCount);
+    this.proteinCount = parseFloat(apiDataUserMain.keyData.proteinCount);
     this.carbohydrateCount = parseFloat(
-      resDataUserMain.keyData.carbohydrateCount
+      apiDataUserMain.keyData.carbohydrateCount
     );
-    this.lipidCount = parseFloat(resDataUserMain.keyData.lipidCount);
+    this.lipidCount = parseFloat(apiDataUserMain.keyData.lipidCount);
   }
 
   formatUserMainData() {
@@ -69,11 +69,6 @@ export class modelActivityData {
         return a.kilogram - b.kilogram;
       }),
     };
-    // objActivityData.sessions.forEach((el) => {
-    //   el.day = String(el.day);
-    //   el.kilogram = parseFloat(el.kilogram);
-    //   el.calories = parseFloat(el.calories);
-    // });
 
     objActivityData.sessions.map(function (el) {
       el.day = String(el.day);
@@ -87,5 +82,77 @@ export class modelActivityData {
     });
 
     return objActivityData;
+  }
+}
+
+export class modelSessionsData {
+  constructor(apiDataSessions) {
+    this.userId = parseInt(apiDataSessions.userId);
+    this.sessions = apiDataSessions.sessions;
+  }
+
+  formatSessionsData() {
+    const days = [
+      "Lundi",
+      "Mardi",
+      "Mercredi",
+      "Jeudi",
+      "Vendredi",
+      "Samedi",
+      "Dimanche",
+    ];
+
+    let objSessionsData = {
+      userId: parseInt(this.userId),
+      sessions: this.sessions,
+    };
+
+    objSessionsData.sessions.map(function (el) {
+      el.day = parseInt(el.day);
+      el.dayLabel = String(days[el.day - 1][0]);
+      el.sessionLength = parseInt(el.sessionLength);
+      return el;
+    });
+
+    return objSessionsData;
+  }
+}
+
+export class modelPerfData {
+  constructor(apiDataPerf) {
+    this.userId = parseInt(apiDataPerf.userId);
+    this.kind = apiDataPerf.kind;
+    this.data = apiDataPerf.data.map(function (el) {
+      el.value = parseInt(el.value);
+      el.kind = Number(el.kind);
+      return el;
+    });
+  }
+
+  formatPerfData() {
+    const frenchKind = [
+      "Cardio",
+      "Energie",
+      "Endurance",
+      "Force",
+      "Vitesse",
+      "Intensité",
+    ];
+
+    let objPerfData = {
+      userId: this.userId,
+      kind: Object.keys(this.kind).map(function (key) {
+        return [Number(key), frenchKind[key - 1]];
+      }),
+      data: this.data,
+    };
+
+    objPerfData.data.forEach((el) => {
+      el.subject = String(
+        objPerfData.kind.find((item) => item[0] === el.kind)[1]
+      );
+    });
+
+    return objPerfData;
   }
 }

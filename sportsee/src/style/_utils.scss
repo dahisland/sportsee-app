@@ -37,3 +37,9 @@ $weights: (
 @mixin mainPaddingContent {
   padding: 0 6%;
 }
+
+@mixin responsiveDesktop {
+  @media screen and (max-width: 1350px) {
+    @content;
+  }
+}
