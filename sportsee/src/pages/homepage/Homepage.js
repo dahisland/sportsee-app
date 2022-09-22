@@ -9,6 +9,7 @@ import {
   getMainUserData,
   getActivityData,
   getSessionsData,
+  getPerformanceData,
 } from "../../data/getDataAPI";
 import {
   getMainMockedData,
@@ -94,9 +95,15 @@ const Homepage = () => {
     //   const data = await getSessionsData(userID);
     //   setDataSessions(data);
     // }
+    // async function updatePerformanceData() {
+    //   getPerformanceData(userID);
+    //   const data = await getPerformanceData(userID);
+    //   setDataPerf(data);
+    // }
     // updateMainData();
     // updateActivityData();
     // updateSessionsData();
+    // updatePerformanceData();
 
     // USE DATA MOCKED
     setDataUser(getMainMockedData(userID));

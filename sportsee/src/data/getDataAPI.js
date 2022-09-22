@@ -2,6 +2,7 @@ import {
   modelUserMainData,
   modelActivityData,
   modelSessionsData,
+  modelPerfData,
 } from "./modelDatas";
 
 export const getMainUserData = async (userID) => {
@@ -38,6 +39,20 @@ export const getSessionsData = async (userID) => {
     const sessionsDataJson = await sessionsData.json();
     const formatSessionsJson = new modelSessionsData(sessionsDataJson.data);
     return formatSessionsJson.formatSessionsData();
+  } catch (err) {
+    // TypeError: failed to fetch
+    alert(`Une erreur est survenue dans le chargement des données (${err})`);
+  }
+};
+
+export const getPerformanceData = async (userID) => {
+  try {
+    const perfData = await fetch(
+      `http://localhost:3000/user/${userID}/performance`
+    );
+    const perfDataJson = await perfData.json();
+    const formatPerfJson = new modelPerfData(perfDataJson.data);
+    return formatPerfJson.formatPerfData();
   } catch (err) {
     // TypeError: failed to fetch
     alert(`Une erreur est survenue dans le chargement des données (${err})`);
