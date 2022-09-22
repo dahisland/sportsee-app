@@ -16,7 +16,7 @@ const RadarChartPerf = ({ dataPerf }) => {
         <RadarChart
           innerRadius="6%"
           outerRadius="49%"
-          data={dataPerf.data}
+          data={dataPerf}
           startAngle={-150}
           endAngle={210}
         >
@@ -41,7 +41,7 @@ const RadarChartPerf = ({ dataPerf }) => {
 };
 
 RadarChartPerf.propTypes = {
-  dataPerf: PropTypes.object,
+  dataPerf: PropTypes.array,
 };
 
 export default RadarChartPerf;

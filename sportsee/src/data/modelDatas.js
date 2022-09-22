@@ -23,7 +23,10 @@ export class modelUserMainData {
         lastName: this.lastName,
         age: this.age,
       },
-      todayScore: this.todayScore,
+      todayScore: [
+        { name: "Max", value: 100, fill: "transparent" },
+        { name: "Score", value: this.todayScore * 100, fill: "#FF0000" },
+      ],
       keyData: [
         {
           label: "Calories",

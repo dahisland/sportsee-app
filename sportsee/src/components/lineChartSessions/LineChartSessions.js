@@ -12,14 +12,15 @@ import {
 import LineChartLegend from "./LineChartLegend";
 import LineChartTooltip from "./LineChartTooltip";
 import PropTypes from "prop-types";
+import LineChartCursor from "./LineChartCursor";
 
 const LineChartSessions = ({ dataSessions }) => {
   return (
     <figure className="lineChart_sessions">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          data={dataSessions.sessions}
-          margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
+          data={dataSessions}
+          margin={{ top: 0, right: 0, left: 0, bottom: 10 }}
         >
           <defs>
             <linearGradient id="colorUv" x1="1" y1="1" x2="0" y2="1">
@@ -39,9 +40,11 @@ const LineChartSessions = ({ dataSessions }) => {
             axisLine={false}
             interval={"preserveStartEnd"}
             fontSize={12}
-            tickSize={0}
-            dy={5}
-            tick={{ fill: "#FFFFFF", opacity: 0.5 }}
+            tickLine={false}
+            tick={{
+              fill: "#FFFFFF",
+              opacity: 0.5,
+            }}
             textAnchor="Middle"
           />
           <YAxis
@@ -55,11 +58,7 @@ const LineChartSessions = ({ dataSessions }) => {
             wrapperStyle={{ outline: "none", top: "-50px" }}
             allowEscapeViewBox={{ x: false, y: false }}
             isAnimationActive={false}
-            cursor={{
-              stroke: "#000",
-              strokeWidth: 20,
-              strokeOpacity: 0.1,
-            }}
+            cursor={<LineChartCursor />}
           />
           <Line
             type="monotone"
@@ -78,7 +77,7 @@ const LineChartSessions = ({ dataSessions }) => {
 };
 
 LineChartSessions.propTypes = {
-  dataSessions: PropTypes.object,
+  dataSessions: PropTypes.array,
 };
 
 export default LineChartSessions;

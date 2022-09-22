@@ -5,6 +5,8 @@ import VerticalNav from "../../components/verticalNav/VerticalNav";
 import SectionHello from "../../components/sectionHello/SectionHello";
 import KeyFiguresCard from "../../components/keyFiguresCard/KeyFiguresCard";
 import BarChartActivity from "../../components/barChartActivity/BarChartActivity";
+import RadialBarScore from "../../components/radialBarScore/RadialBarScore";
+
 import {
   getMainUserData,
   getActivityData,
@@ -29,7 +31,7 @@ const Homepage = () => {
       lastName: undefined,
       age: undefined,
     },
-    todayScore: undefined,
+    todayScore: [{ name: undefined, value: undefined, fill: undefined }],
     keyData: [
       {
         label: undefined,
@@ -112,7 +114,7 @@ const Homepage = () => {
     setDataPerf(getPerfMockedData(userID));
   }, [userID]);
 
-  console.log(dataPerf);
+  console.log(dataUser);
 
   return (
     <div className="page_container">
@@ -125,18 +127,17 @@ const Homepage = () => {
         <section className="mainSection_statistics">
           <article className="statistics_charts">
             <div className="charts_flexboxContainer">
-              <BarChartActivity dataActivity={dataActivity}></BarChartActivity>
+              <BarChartActivity
+                dataActivity={dataActivity.sessions}
+              ></BarChartActivity>
 
               <LineChartSessions
-                dataSessions={dataSessions}
+                dataSessions={dataSessions.sessions}
               ></LineChartSessions>
 
-              <RadarChartPerf dataPerf={dataPerf}></RadarChartPerf>
+              <RadarChartPerf dataPerf={dataPerf.data}></RadarChartPerf>
 
-              <div
-                id="radialbarchart"
-                style={{ width: "32%", background: "green", height: "200px" }}
-              ></div>
+              <RadialBarScore dataScore={dataUser.todayScore}></RadialBarScore>
             </div>
           </article>
 

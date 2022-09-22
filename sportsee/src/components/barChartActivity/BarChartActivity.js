@@ -16,16 +16,15 @@ import BarChartCursor from "./BarChartCursor";
 
 const BarChartActivity = ({ dataActivity }) => {
   // Variables for right Yaxis weight ticks
-  let minWeight = dataActivity.sessions[0].kilogram;
-  let maxWeight =
-    dataActivity.sessions[dataActivity.sessions.length - 1].kilogram;
+  let minWeight = dataActivity[0].kilogram;
+  let maxWeight = dataActivity[dataActivity.length - 1].kilogram;
   let middleWeight = minWeight + (maxWeight - minWeight) / 2;
 
   return (
     <figure className="barChart_activity">
       <ResponsiveContainer width="100%" height={320}>
         <BarChart
-          data={dataActivity.sessions}
+          data={dataActivity}
           barSize={7}
           barGap={8}
           reverseStackOrder={true}
@@ -44,7 +43,7 @@ const BarChartActivity = ({ dataActivity }) => {
           <XAxis
             dataKey="dayFormatted"
             type="number"
-            tickCount={dataActivity.sessions.length}
+            tickCount={dataActivity.length}
             domain={["dataMin", "dataMax"]}
             tickSize={0}
             dy={20}
@@ -109,7 +108,7 @@ const BarChartActivity = ({ dataActivity }) => {
 };
 
 BarChartActivity.propTypes = {
-  dataActivity: PropTypes.object,
+  dataActivity: PropTypes.array,
 };
 
 export default BarChartActivity;
