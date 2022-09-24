@@ -37,7 +37,7 @@ const RadialBarScore = ({ dataScore }) => {
             iconSize={0}
             layout="horizontal"
             verticalAlign="middle"
-            content={<RadialBarLegend />}
+            content={<RadialBarLegend dataScore={dataScore} />}
           />
         </RadialBarChart>
       </ResponsiveContainer>

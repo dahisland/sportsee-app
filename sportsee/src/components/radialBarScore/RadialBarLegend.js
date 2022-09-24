@@ -1,10 +1,10 @@
 import React from "react";
 
-const RadialBarLegend = ({ payload }) => {
+const RadialBarLegend = ({ dataScore }) => {
   return (
     <figcaption className="radialBarScore_figcaption">
       <p>
-        <span>{payload[1].payload.value}%</span>
+        <span>{dataScore[1].value}%</span>
         <br />
         de votre objectif
       </p>

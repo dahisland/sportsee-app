@@ -48,11 +48,6 @@ export class modelUserMainData {
           count: this.lipidCount + "g",
           icon: "lipid-icon.svg",
         },
-
-        // calorieCount: this.calorieCount,
-        // proteinCount: this.proteinCount,
-        // carbohydrateCount: this.carbohydrateCount,
-        // lipidCount: this.lipidCount,
       ],
     };
     return objMainData;

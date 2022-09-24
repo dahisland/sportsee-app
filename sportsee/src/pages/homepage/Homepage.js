@@ -6,153 +6,144 @@ import SectionHello from "../../components/sectionHello/SectionHello";
 import KeyFiguresCard from "../../components/keyFiguresCard/KeyFiguresCard";
 import BarChartActivity from "../../components/barChartActivity/BarChartActivity";
 import RadialBarScore from "../../components/radialBarScore/RadialBarScore";
-
+import LineChartSessions from "../../components/lineChartSessions/LineChartSessions";
+import RadarChartPerf from "../../components/radarChartPerformance/RadarChartPerf";
+import FetchError from "../../components/fetchError/FetchError";
+import {
+  userUseState,
+  activityUseState,
+  sessionsUseState,
+  perfUseState,
+} from "../../data/initUseStates";
+// // IMPORT CALLS API DATA
 import {
   getMainUserData,
   getActivityData,
   getSessionsData,
   getPerformanceData,
 } from "../../data/getDataAPI";
-import {
-  getMainMockedData,
-  getActivityMockedData,
-  getSessionsMockedData,
-  getPerfMockedData,
-} from "../../data/getDataMocked";
-import LineChartSessions from "../../components/lineChartSessions/LineChartSessions";
-import RadarChartPerf from "../../components/radarChartPerformance/RadarChartPerf";
+// // IMPORT MOCK DATA
+// import {
+//   getMainMockedData,
+//   getActivityMockedData,
+//   getSessionsMockedData,
+//   getPerfMockedData,
+// } from "../../data/getDataMocked";
 
 const Homepage = () => {
   const { userID } = useParams();
-  const [dataUser, setDataUser] = useState({
-    id: undefined,
-    userInfos: {
-      firstName: undefined,
-      lastName: undefined,
-      age: undefined,
-    },
-    todayScore: [{ name: undefined, value: undefined, fill: undefined }],
-    keyData: [
-      {
-        label: undefined,
-        count: undefined,
-        icon: undefined,
-      },
-    ],
-  });
-  const [dataActivity, setDataActivity] = useState({
-    userId: undefined,
-    sessions: [
-      {
-        day: undefined,
-        dayFormatted: undefined,
-        kilogram: undefined,
-        calories: undefined,
-      },
-    ],
-  });
 
-  const [dataSessions, setDataSessions] = useState({
-    userId: undefined,
-    sessions: [
-      {
-        day: undefined,
-        dayLabel: undefined,
-        sessionLength: undefined,
-      },
-    ],
-  });
+  const [fetchData, setFetchData] = useState(false);
+  const [apiError, setApiError] = useState("");
 
-  const [dataPerf, setDataPerf] = useState({
-    userId: undefined,
-    kind: [[undefined, undefined]],
-    data: [
-      {
-        value: undefined,
-        kind: [undefined, undefined],
-      },
-      {
-        value: undefined,
-        kind: undefined,
-        subject: undefined,
-      },
-    ],
-  });
+  const [loader, setLoader] = useState(true);
+
+  const [dataUser, setDataUser] = useState(userUseState);
+  const [dataActivity, setDataActivity] = useState(activityUseState);
+  const [dataSessions, setDataSessions] = useState(sessionsUseState);
+  const [dataPerf, setDataPerf] = useState(perfUseState);
 
   useEffect(() => {
+    setLoader(true);
     window.scrollTo(0, 0);
-    // USE DATA CALLED BY API
+    // // USE DATA CALLED BY API
     // async function updateMainData() {
-    //   getMainUserData(userID);
     //   const data = await getMainUserData(userID);
     //   setDataUser(data);
+    //   setFetchData(true);
     // }
     // async function updateActivityData() {
-    //   getActivityData(userID);
     //   const data = await getActivityData(userID);
     //   setDataActivity(data);
+    //   setFetchData(true);
     // }
     // async function updateSessionsData() {
-    //   getSessionsData(userID);
     //   const data = await getSessionsData(userID);
     //   setDataSessions(data);
+    //   setFetchData(true);
     // }
     // async function updatePerformanceData() {
-    //   getPerformanceData(userID);
     //   const data = await getPerformanceData(userID);
     //   setDataPerf(data);
+    //   setFetchData(true);
     // }
     // updateMainData();
     // updateActivityData();
     // updateSessionsData();
     // updatePerformanceData();
 
-    // USE DATA MOCKED
-    setDataUser(getMainMockedData(userID));
-    setDataActivity(getActivityMockedData(userID));
-    setDataSessions(getSessionsMockedData(userID));
-    setDataPerf(getPerfMockedData(userID));
-  }, [userID]);
+    // // USE DATA MOCKED
+    // setDataUser(getMainMockedData(userID));
+    // setDataActivity(getActivityMockedData(userID));
+    // setDataSessions(getSessionsMockedData(userID));
+    // setDataPerf(getPerfMockedData(userID));
 
-  console.log(dataUser);
+    // // USE DATA CALLED BY API WITH PROMISE.ALL
+    let getAllData = async () => {
+      try {
+        let promiseAllData = await Promise.all([
+          getMainUserData(userID),
+          getActivityData(userID),
+          getSessionsData(userID),
+          getPerformanceData(userID),
+        ]);
+        setFetchData(true);
+        setDataUser(promiseAllData[0]);
+        setDataActivity(promiseAllData[1]);
+        setDataSessions(promiseAllData[2]);
+        setDataPerf(promiseAllData[3]);
+      } catch (error) {
+        setLoader(false);
+        setFetchData(false);
+        setApiError(error.message);
+        console.log(error);
+      }
+    };
+    getAllData();
+  }, [userID]);
 
   return (
     <div className="page_container">
       <HorizontalNav />
       <VerticalNav />
+      {fetchData === true ? (
+        <main className="pageHome_main">
+          <SectionHello name={dataUser.userInfos.firstName} />
 
-      <main className="pageHome_main">
-        <SectionHello name={dataUser.userInfos.firstName} />
+          <section className="mainSection_statistics">
+            <article className="statistics_charts">
+              <div className="charts_flexboxContainer">
+                <BarChartActivity
+                  dataActivity={dataActivity.sessions}
+                ></BarChartActivity>
 
-        <section className="mainSection_statistics">
-          <article className="statistics_charts">
-            <div className="charts_flexboxContainer">
-              <BarChartActivity
-                dataActivity={dataActivity.sessions}
-              ></BarChartActivity>
+                <LineChartSessions
+                  dataSessions={dataSessions.sessions}
+                ></LineChartSessions>
 
-              <LineChartSessions
-                dataSessions={dataSessions.sessions}
-              ></LineChartSessions>
+                <RadarChartPerf dataPerf={dataPerf.data}></RadarChartPerf>
 
-              <RadarChartPerf dataPerf={dataPerf.data}></RadarChartPerf>
+                <RadialBarScore
+                  dataScore={dataUser.todayScore}
+                ></RadialBarScore>
+              </div>
+            </article>
 
-              <RadialBarScore dataScore={dataUser.todayScore}></RadialBarScore>
-            </div>
-          </article>
-
-          <article className="statistics_keyFigures">
-            {dataUser.keyData.map((item, index) => (
-              <KeyFiguresCard
-                image={item.icon}
-                name={item.label}
-                value={item.count}
-                key={item.label + index}
-              />
-            ))}
-          </article>
-        </section>
-      </main>
+            <article className="statistics_keyFigures">
+              {dataUser.keyData.map((item, index) => (
+                <KeyFiguresCard
+                  image={item.icon}
+                  name={item.label}
+                  value={item.count}
+                  key={item.label + index}
+                />
+              ))}
+            </article>
+          </section>
+        </main>
+      ) : (
+        <FetchError apiError={apiError} loader={loader} />
+      )}
     </div>
   );
 };

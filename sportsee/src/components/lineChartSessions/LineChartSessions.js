@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   LineChart,
   XAxis,
@@ -6,7 +6,6 @@ import {
   Tooltip,
   Line,
   ResponsiveContainer,
-  Rectangle,
   Legend,
 } from "recharts";
 import LineChartLegend from "./LineChartLegend";
@@ -15,6 +14,7 @@ import PropTypes from "prop-types";
 import LineChartCursor from "./LineChartCursor";
 
 const LineChartSessions = ({ dataSessions }) => {
+  const padding = 15;
   return (
     <figure className="lineChart_sessions">
       <ResponsiveContainer width="100%" height="100%">
@@ -36,7 +36,7 @@ const LineChartSessions = ({ dataSessions }) => {
           <XAxis
             dataKey="dayLabel"
             type="category"
-            padding={{ left: 15, right: 15 }}
+            padding={{ left: padding, right: padding }}
             axisLine={false}
             interval={"preserveStartEnd"}
             fontSize={12}
@@ -45,7 +45,7 @@ const LineChartSessions = ({ dataSessions }) => {
               fill: "#FFFFFF",
               opacity: 0.5,
             }}
-            textAnchor="Middle"
+            textAnchor="middle"
           />
           <YAxis
             domain={["dataMin -10", "dataMax + 30"]}
@@ -54,11 +54,10 @@ const LineChartSessions = ({ dataSessions }) => {
           />
           <Tooltip
             content={<LineChartTooltip />}
-            offset={5}
-            wrapperStyle={{ outline: "none", top: "-50px" }}
-            allowEscapeViewBox={{ x: false, y: false }}
+            offset={12}
+            wrapperStyle={{ outline: "none", top: "-40px" }}
             isAnimationActive={false}
-            cursor={<LineChartCursor />}
+            cursor={<LineChartCursor padding={padding} />}
           />
           <Line
             type="monotone"

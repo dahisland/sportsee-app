@@ -46,6 +46,7 @@ const BarChartActivity = ({ dataActivity }) => {
             tickCount={dataActivity.length}
             domain={["dataMin", "dataMax"]}
             tickSize={0}
+            // tickMargin={20}
             dy={20}
             fontSize={14}
             tick={{ fill: "#9B9EAC" }}
