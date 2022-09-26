@@ -1,29 +1,31 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
+<br/>
+
+<div id="header" align="left">
+  <img src="./sportsee/src/assets/logo.svg" width="200"/>
+</div>
 
 # SPORTSEE : Training coaching
 
-<div id="header" align="left">
-  <img src="./sportsee/src/assets/logo.svg" width="300"/>
-</div>
+Sportsee is a sport's coaching startup that offers services to visualize sport's training progression on
+his application with graphics and statistics following.
 
-Sportsee is a sport's coaching startup with an application to follow your progress and sports training statistics.
-
-## Technologies
+## TECHNOLOGIES
 
 - JS
 - CSS
 - React
 
-## Project's installation
+## PROJECT'S INSTALLATION
 
-### Prerequites
+### \* Prerequites
 
 - Github account
 - NodeJS : Version 16.17.0 (![Download version](https://nodejs.org/download/release/v16.17.0/))
 - Yarn : Version 1.22.19 (It is recommended to install Yarn through the npm package manager. ![More information](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable))
 
-### STEP 1 : RUN API
+### \* STEP 1 : RUN API
 
 - Fork this repository : https://github.com/dahisland/MyriamMornet_12_092022 to your Github account.
 - Clone it to the local folder's project of your choice in your computer.
@@ -33,7 +35,7 @@ Sportsee is a sport's coaching startup with an application to follow your progre
 
 To run the api, use the command `yarn dev`.
 
-#### _ENDPOINTS_ :
+#### _Endpoints_ :
 
 This project includes four endpoints that you will be able to use:
 
@@ -51,12 +53,12 @@ Warning, currently only two users have been mocked. They have userId 12 and 18 r
 
 If you want to install api by using Docker, you can have more instructions on this ![repository](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard#readme).
 
-### STEP 2 : RUN FRONTEND
+### \* STEP 2 : RUN FRONTEND
 
 - Use the command `cd sportsee` to change your working directory to the frontend folder.
 - Use the command `npm start` to run the project on your browser.
 
 Local url by default is : `http://localhost:3006/`.
 
-You can customize local port by changing it on file sportsee/package.json (line 20) : <br/>
+You can customize local port by changing it on file ![sportsee/package.json](https://github.com/dahisland/MyriamMornet_12_092022/blob/main/sportsee/package.json) (line 20) : <br/>
 `"scripts": {"start": "set PORT=3006 && react-scripts start"}`.
