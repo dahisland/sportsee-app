@@ -3,7 +3,6 @@ import { Rectangle } from "recharts";
 import PropTypes from "prop-types";
 
 const LineChartCursor = ({ width, points, padding }) => {
-  console.log(points[0].x);
   return (
     <Rectangle
       fill="#000"

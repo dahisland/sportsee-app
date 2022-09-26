@@ -14,7 +14,7 @@ his application with graphics and statistics following.
 ## TECHNOLOGIES
 
 - JS
-- CSS
+- CSS with Sass
 - React
 
 ## PROJECT'S INSTALLATION
@@ -31,7 +31,7 @@ his application with graphics and statistics following.
 - Clone it to the local folder's project of your choice in your computer.
 - Open the folder in your favorite framework editor.
 - Use the command `cd sportsee-backend` to change your working directory to the backend folder.
-- Use the `yarn command` to install dependencies.
+- Use the `yarn` command to install dependencies.
 
 To run the api, use the command `yarn dev`.
 
@@ -56,7 +56,8 @@ If you want to install api by using Docker, you can have more instructions on th
 ### \* STEP 2 : RUN FRONTEND
 
 - Use the command `cd sportsee` to change your working directory to the frontend folder.
-- Use the command `npm start` to run the project on your browser.
+- Use the `npm install` command to install dependencies.
+- Use the `npm start` command to run the project on your browser.
 
 Local url by default is : `http://localhost:3006/`.
 

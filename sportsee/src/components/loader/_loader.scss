@@ -14,6 +14,7 @@
   min-height: 80vh;
   position: relative;
 }
+
 .loader_container {
   position: absolute;
   top: 0;
@@ -25,29 +26,29 @@
   align-items: center;
   background: map-get($colors, white);
   z-index: 1;
-}
 
-.loaderContainer_spinner {
-  width: 50px;
-  height: 50px;
-  background-image: url("../../assets/icon-logo.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  border-radius: 50%;
-  position: relative;
-  opacity: 0.6;
-}
+  .loaderContainer_spinner {
+    width: 50px;
+    height: 50px;
+    background-image: url("../../assets/icon-logo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+    position: relative;
+    opacity: 0.6;
+  }
 
-.spinner_anim {
-  position: absolute;
-  top: -10px;
-  bottom: -10px;
-  left: -10px;
-  right: -10px;
-  border: 4px solid;
-  border-color: red black white;
-  border-radius: 50%;
-  animation: spinner-anim 1000ms linear infinite;
-  opacity: 0.5;
+  .spinner_anim {
+    position: absolute;
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+    border: 4px solid;
+    border-color: red black white;
+    border-radius: 50%;
+    animation: spinner-anim 1000ms linear infinite;
+    opacity: 0.5;
+  }
 }
