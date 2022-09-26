@@ -1,3 +1,9 @@
+/**
+ * Javascript file containing mock data
+ * This file can be used to develop, implement and test code without calling data by api
+ * @file
+ */
+
 const USER_MAIN_DATA = [
   {
     id: 12,
