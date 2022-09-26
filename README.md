@@ -1,10 +1,10 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
 
-# <span style="color:red"> SPORTSEE : Training coaching</span>
+# SPORTSEE : Training coaching
 
-<div id="header" align="center">
-  <img src="./sportsee/src/assets/logo.svg" width="100"/>
+<div id="header" align="left">
+  <img src="./sportsee/src/assets/logo.svg" width="300"/>
 </div>
 
 Sportsee is a sport's coaching startup with an application to follow your progress and sports training statistics.
