@@ -22,8 +22,8 @@ his application with graphics and statistics following.
 ### \* Prerequites
 
 - Github account
-- NodeJS : Version 16.17.0 (![Download version](https://nodejs.org/download/release/v16.17.0/))
-- Yarn : Version 1.22.19 (It is recommended to install Yarn through the npm package manager. ![More information](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable))
+- NodeJS : Version 16.17.0 ([Download version](https://nodejs.org/download/release/v16.17.0/))
+- Yarn : Version 1.22.19 (It is recommended to install Yarn through the npm package manager. [More information](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable))
 
 ### \* STEP 1 : RUN API
 
@@ -51,7 +51,7 @@ This project includes four endpoints that you will be able to use:
 
 Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.
 
-If you want to install api by using Docker, you can have more instructions on this ![repository](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard#readme).
+If you want to install api by using Docker, you can have more instructions on this [repository](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard#readme).
 
 ### \* STEP 2 : RUN FRONTEND
 
@@ -60,5 +60,5 @@ If you want to install api by using Docker, you can have more instructions on th
 
 Local url by default is : `http://localhost:3006/`.
 
-You can customize local port by changing it on file ![sportsee/package.json](https://github.com/dahisland/MyriamMornet_12_092022/blob/main/sportsee/package.json) (line 20) : <br/>
+You can customize local port by changing it on your local file [sportsee/package.json](https://github.com/dahisland/MyriamMornet_12_092022/blob/main/sportsee/package.json) (line 20) : <br/>
 `"scripts": {"start": "set PORT=3006 && react-scripts start"}`.
