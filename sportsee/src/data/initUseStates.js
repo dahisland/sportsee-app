@@ -3,14 +3,12 @@
  * @file
  */
 
+/**
+ * Object containing main user data structure with 'undefined' default values, after data has been called and formatted
+ * @constant
+ * @type {object}
+ */
 export const userUseState = {
-  /**
-   * Object containing main user data structure with 'undefined' default values,
-   * after data has been called and formatted
-   * @constant
-   * @exports
-   */
-
   id: undefined,
   userInfos: {
     firstName: undefined,
@@ -30,14 +28,12 @@ export const userUseState = {
   ],
 };
 
+/**
+ * Object containing user Activity data structure with 'undefined' default values, after data has been called and formatted
+ * @constant
+ * @type {object}
+ */
 export const activityUseState = {
-  /**
-   * Object containing user Activity data structure with 'undefined' default values,
-   * after data has been called and formatted
-   * @constant
-   * @exports
-   */
-
   userId: undefined,
   sessions: [
     {
@@ -49,14 +45,12 @@ export const activityUseState = {
   ],
 };
 
+/**
+ * Object containing user Sessions data structure with 'undefined' default values, after data has been called and formatted
+ * @constant
+ * @type {object}
+ */
 export const sessionsUseState = {
-  /**
-   * Object containing user Sessions data structure with 'undefined' default values,
-   * after data has been called and formatted
-   * @constant
-   * @exports
-   */
-
   userId: undefined,
   sessions: [
     {
@@ -67,21 +61,15 @@ export const sessionsUseState = {
   ],
 };
 
+/**
+ * Object containing user Performance data structure with 'undefined' default values, after data has been called and formatted
+ * @constant
+ * @type {object}
+ */
 export const perfUseState = {
-  /**
-   * Object containing user Performance data structure with 'undefined' default values,
-   * after data has been called and formatted
-   * @constant
-   * @exports
-   */
-
   userId: undefined,
   kind: [[undefined, undefined]],
   data: [
-    {
-      value: undefined,
-      kind: [undefined, undefined],
-    },
     {
       value: undefined,
       kind: undefined,

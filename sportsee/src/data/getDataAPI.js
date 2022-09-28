@@ -10,15 +10,13 @@ import {
   modelPerfData,
 } from "./modelDatas";
 
+/**
+ * Function to get main user data by calling api
+ * @param {number} userId - Number collected in the page's url by using a hook
+ * @async
+ * @returns {object} - Object containing formatted data called
+ */
 export const getMainUserData = async (userID) => {
-  /**
-   * Function to get main user data by calling api
-   * @params userId : Number collected in the page's url by using useParam()
-   * @async
-   * @returns Object containing formatted data called
-   * @exports
-   */
-
   const mainData = await fetch(`http://localhost:3000/user/${userID}`);
   const mainDataJson = await mainData.json();
   const formatMainDataJson = new modelUserMainData(mainDataJson.data);
@@ -26,15 +24,13 @@ export const getMainUserData = async (userID) => {
   return formatMainDataJson.formatUserMainData();
 };
 
+/**
+ * Function to get user Activity data by calling api
+ * @param {number} userId - Number collected in the page's url by using a hook
+ * @async
+ * @returns {object} - Object containing formatted data called
+ */
 export const getActivityData = async (userID) => {
-  /**
-   * Function to get user Activity data by calling api
-   * @params userId : Number collected in the page's url by using useParam()
-   * @async
-   * @returns Object containing formatted data called
-   * @exports
-   */
-
   const activityData = await fetch(
     `http://localhost:3000/user/${userID}/activity`
   );
@@ -44,15 +40,13 @@ export const getActivityData = async (userID) => {
   return formatActivityJson.formatActivityData();
 };
 
+/**
+ * Function to get user Sessions data by calling api
+ * @param {number} userId - Number collected in the page's url by using a hook
+ * @async
+ * @returns {object} - Object containing formatted data called
+ */
 export const getSessionsData = async (userID) => {
-  /**
-   * Function to get user Sessions data by calling api
-   * @params userId : Number collected in the page's url by using useParam()
-   * @async
-   * @returns Object containing formatted data called
-   * @exports
-   */
-
   const sessionsData = await fetch(
     `http://localhost:3000/user/${userID}/average-sessions`
   );
@@ -62,15 +56,13 @@ export const getSessionsData = async (userID) => {
   return formatSessionsJson.formatSessionsData();
 };
 
+/**
+ * Function to get user Performance data by calling api
+ * @param {number} userId - Number collected in the page's url by using a hook
+ * @async
+ * @returns {object} - Object containing formatted data called
+ */
 export const getPerformanceData = async (userID) => {
-  /**
-   * Function to get user Performance data by calling api
-   * @params userId : Number collected in the page's url by using useParam()
-   * @async
-   * @returns Object containing formatted data called
-   * @exports
-   */
-
   const perfData = await fetch(
     `http://localhost:3000/user/${userID}/performance`
   );

@@ -9,6 +9,10 @@ import RadialBarLegend from "./RadialBarLegend";
 import PropTypes from "prop-types";
 import RadialBarCircle from "./RadialBarCircle";
 
+/**
+ * Component React for display the radialBar chart score of user
+ * @component
+ */
 const RadialBarScore = ({ dataScore }) => {
   return (
     <figure className="radialBar_score">
@@ -37,7 +41,7 @@ const RadialBarScore = ({ dataScore }) => {
             iconSize={0}
             layout="horizontal"
             verticalAlign="middle"
-            content={<RadialBarLegend dataScore={dataScore} />}
+            content={<RadialBarLegend todayScore={dataScore[1].value} />}
           />
         </RadialBarChart>
       </ResponsiveContainer>
@@ -46,6 +50,9 @@ const RadialBarScore = ({ dataScore }) => {
 };
 
 RadialBarChart.propTypes = {
+  /**
+   * Array containing user's todayScore data
+   */
   dataScore: PropTypes.array,
 };
 

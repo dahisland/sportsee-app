@@ -9,6 +9,10 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * Component React for display the radar chart showing performances statistics of user
+ * @component
+ */
 const RadarChartPerf = ({ dataPerf }) => {
   return (
     <figure className="radarChart_perf">
@@ -41,6 +45,9 @@ const RadarChartPerf = ({ dataPerf }) => {
 };
 
 RadarChartPerf.propTypes = {
+  /**
+   * Array containing objects with data values and french labels of each perfomance's category
+   */
   dataPerf: PropTypes.array,
 };
 

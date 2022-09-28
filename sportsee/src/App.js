@@ -6,12 +6,16 @@ import Community from "./pages/community/Community";
 import Error404 from "./pages/error404/Error404";
 import Login from "./pages/login/Login";
 
+/**
+ * Component React containing Routes path for navigation
+ * @component
+ */
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Login />} />
-        <Route exact path="/homepage/:userID" element={<Homepage />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/homepage/:userID" element={<Homepage />} />
         <Route path="/profile/:userID" element={<Profile />} />
         <Route path="/setting/:userID" element={<Setting />} />
         <Route path="/community/:userID" element={<Community />} />

@@ -17,14 +17,12 @@ import {
   modelPerfData,
 } from "./modelDatas";
 
+/**
+ * Function to get main user mock data
+ * @param {number} userId - Number collected in the page's url by using a hook
+ * @returns {object} - Object containing mock data formatted
+ */
 export const getMainMockedData = (userID) => {
-  /**
-   * Function to get main user mock data
-   * @params userId : Number collected in the page's url by using useParam()
-   * @returns Object containing mock data formatted
-   * @exports
-   */
-
   let userInfos = new modelUserMainData(
     USER_MAIN_DATA.find((item) => parseInt(item.id) === parseInt(userID))
   );
@@ -32,14 +30,12 @@ export const getMainMockedData = (userID) => {
   return userInfos.formatUserMainData();
 };
 
+/**
+ * Function to get user Activity mock data
+ * @param {number} userId - Number collected in the page's url by using a hook
+ * @returns {object} - Object containing mock data formatted
+ */
 export const getActivityMockedData = (userID) => {
-  /**
-   * Function to get user Activity mock data
-   * @params userId : Number collected in the page's url by using useParam()
-   * @returns Object containing mock data formatted
-   * @exports
-   */
-
   let userActivity = new modelActivityData(
     USER_ACTIVITY.find((item) => parseInt(item.userId) === parseInt(userID))
   );
@@ -47,14 +43,12 @@ export const getActivityMockedData = (userID) => {
   return userActivity.formatActivityData();
 };
 
+/**
+ * Function to get user Sessions mock data
+ * @param {number} userId - Number collected in the page's url by using a hook
+ * @returns {object} - Object containing mock data formatted
+ */
 export const getSessionsMockedData = (userID) => {
-  /**
-   * Function to get user Sessions mock data
-   * @params userId : Number collected in the page's url by using useParam()
-   * @returns Object containing mock data formatted
-   * @exports
-   */
-
   let userSessions = new modelSessionsData(
     USER_AVERAGE_SESSIONS.find(
       (item) => parseInt(item.userId) === parseInt(userID)
@@ -64,14 +58,12 @@ export const getSessionsMockedData = (userID) => {
   return userSessions.formatSessionsData();
 };
 
+/**
+ * Function to get user Performance mock data
+ * @param {number} userId - Number collected in the page's url by using a hook
+ * @returns {object} - Object containing mock data formatted
+ */
 export const getPerfMockedData = (userID) => {
-  /**
-   * Function to get user Performance mock data
-   * @params userId : Number collected in the page's url by using useParam()
-   * @returns Object containing mock data formatted
-   * @exports
-   */
-
   let userSessions = new modelPerfData(
     USER_PERFORMANCE.find((item) => parseInt(item.userId) === parseInt(userID))
   );

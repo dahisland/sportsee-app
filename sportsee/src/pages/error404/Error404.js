@@ -3,6 +3,10 @@ import { NavLink } from "react-router-dom";
 import HorizontalNav from "../../components/horizontalNav/HorizontalNav";
 import VerticalNav from "../../components/verticalNav/VerticalNav";
 
+/**
+ * Component React for page Error 404
+ * @component
+ */
 const Error404 = () => {
   return (
     <div className="page_container">

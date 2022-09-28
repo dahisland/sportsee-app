@@ -2,10 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Loader from "../loader/Loader";
 
+/**
+ * Component React for display an error message when calls api data failed to load data
+ * @component
+ */
 const FetchError = ({ apiError, loader }) => {
   function refreshPage() {
     window.location.reload(false);
   }
+
   return loader ? (
     <Loader />
   ) : (

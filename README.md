@@ -57,7 +57,7 @@ If you want to install api by using Docker, you can have more instructions on th
 
 - Use the command `cd sportsee` to change your working directory to the frontend folder.
 - Use the `npm install` command to install dependencies.
-- Use the `npm start` command to run the project on your browser.
+- Use the `npm start` command to run the project localy on your browser.
 
 Local url by default is : `http://localhost:3006/`.
 

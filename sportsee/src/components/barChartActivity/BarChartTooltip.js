@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/**
+ * Component React to customize the Activity bar chart tooltip displayed on hover
+ * @component
+ */
 const BarChartTooltip = ({ payload }) => {
   return (
     <ul className="activity_toolTip">
@@ -15,6 +19,9 @@ const BarChartTooltip = ({ payload }) => {
 };
 
 BarChartTooltip.propTypes = {
+  /**
+   * Recharts props value containing user's activity data used for the bar chart and internally formatted by Recharts
+   */
   payload: PropTypes.array,
 };
 

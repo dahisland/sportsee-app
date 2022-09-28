@@ -4,7 +4,16 @@ import swimIcon from "../../assets/icon-swim.svg";
 import rideIcon from "../../assets/icon-ride.svg";
 import muscuIcon from "../../assets/icon-muscu.svg";
 
+/**
+ * Component React for display vertical navigation bar with icons and copyright
+ * @component
+ */
 const VerticalNav = () => {
+  /**
+   * Array containing objects with icons names and their image's url
+   * @constant
+   * @type {array}
+   */
   const iconCategories = [
     { name: "yoga", image: yogaIcon },
     { name: "swim", image: swimIcon },

@@ -14,10 +14,25 @@ import BarChartLegend from "./BarChartLegend";
 import BarChartTooltip from "./BarChartTooltip";
 import BarChartCursor from "./BarChartCursor";
 
+/**
+ * Component React for display the bar chart showing activity statistics of user
+ * @component
+ */
 const BarChartActivity = ({ dataActivity }) => {
-  // Variables for right Yaxis weight ticks
+  /**
+   * Collect the minimal data weight value to define barChart's ticks values
+   * @type {number}
+   */
   let minWeight = dataActivity[0].kilogram;
+  /**
+   * Collect the maximal data weight value to define barChart's ticks values
+   * @type {number}
+   */
   let maxWeight = dataActivity[dataActivity.length - 1].kilogram;
+  /**
+   * Calculate average data weight value to define barChart's ticks values
+   * @type {number}
+   */
   let middleWeight = minWeight + (maxWeight - minWeight) / 2;
 
   return (
@@ -109,6 +124,9 @@ const BarChartActivity = ({ dataActivity }) => {
 };
 
 BarChartActivity.propTypes = {
+  /**
+   * Array containing user activity data (weight and calories) for each week's day
+   */
   dataActivity: PropTypes.array,
 };
 

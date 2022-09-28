@@ -2,8 +2,22 @@ import React from "react";
 import { NavLink, useParams } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 
+/**
+ * Component React for display horizontal application's navigation
+ * @component
+ */
 const HorizontalNav = () => {
+  /**
+   * User's id number collected by a hook in the page's URL
+   * @constant
+   * @type {number}
+   */
   const { userID } = useParams();
+  /**
+   * Array containing objects with name and uri for each navigation's link
+   * @constant
+   * @type {array}
+   */
   const navItems = [
     { name: "Accueil", uri: "/homepage/" },
     { name: "Profil", uri: "/profile/" },

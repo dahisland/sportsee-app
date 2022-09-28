@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/**
+ * Component React for display user's name with a welcoming message
+ * @component
+ */
 const SectionHello = ({ name }) => {
   return (
     <section className="mainSection_hello">
@@ -13,6 +17,9 @@ const SectionHello = ({ name }) => {
 };
 
 SectionHello.propTypes = {
+  /**
+   * User's name
+   */
   name: PropTypes.string,
 };
 

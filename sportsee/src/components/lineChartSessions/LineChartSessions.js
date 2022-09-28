@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   LineChart,
   XAxis,
@@ -13,8 +13,18 @@ import LineChartTooltip from "./LineChartTooltip";
 import PropTypes from "prop-types";
 import LineChartCursor from "./LineChartCursor";
 
+/**
+ * Component React for display the line chart showing sessions duration statistics of user
+ * @component
+ */
 const LineChartSessions = ({ dataSessions }) => {
+  /**
+   * Value for the line chart ticks padding
+   * @constant
+   * @type {number}
+   */
   const padding = 15;
+
   return (
     <figure className="lineChart_sessions">
       <ResponsiveContainer width="100%" height="100%">
@@ -76,6 +86,9 @@ const LineChartSessions = ({ dataSessions }) => {
 };
 
 LineChartSessions.propTypes = {
+  /**
+   * Array containing user sessions duration's data for each week's day
+   */
   dataSessions: PropTypes.array,
 };
 

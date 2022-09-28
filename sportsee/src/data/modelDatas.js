@@ -3,13 +3,11 @@
  * @file
  */
 
+/**
+ * Create an instance object with formatted main user mock data or main user data called by api.
+ * @class
+ */
 export class modelUserMainData {
-  /**
-   * Create a new object formatting main user mock data or main user data called by api.
-   * @class
-   * @exports
-   */
-
   constructor(apiDataUserMain) {
     this.id = parseInt(apiDataUserMain.id);
     this.firstName = String(apiDataUserMain.userInfos.firstName);
@@ -27,12 +25,11 @@ export class modelUserMainData {
     this.lipidCount = parseFloat(apiDataUserMain.keyData.lipidCount);
   }
 
+  /**
+   * Static method used to structure data formatting
+   * @returns {object} - Object containing useful main user data to exploit
+   */
   formatUserMainData() {
-    /**
-     * Static method used to structure data formatting
-     * @return object - object containing useful data to exploit
-     */
-
     let objMainData = {
       id: this.id,
       userInfos: {
@@ -40,14 +37,19 @@ export class modelUserMainData {
         lastName: this.lastName,
         age: this.age,
       },
+      /**
+       * Key containing a reference value for the radialChart score and user today's score converted in percentage
+       * @type {array}
+       */
       todayScore: [
-        // Add object containing reference value for the radialChart statistics (percentage)
         { name: "Max", value: 100, fill: "transparent" },
-        // Convert user todayScore value in percentage
         { name: "Score", value: this.todayScore * 100, fill: "#FF0000" },
       ],
+      /**
+       * Key containing french labels, url icons and units for values used in the right cards
+       * @type {array}
+       */
       keyData: [
-        // Add french labels, reference icons and units for the cards values
         {
           label: "Calories",
           count: this.calorieCount.toLocaleString("en-US") + "kCal",
@@ -75,26 +77,27 @@ export class modelUserMainData {
   }
 }
 
+/**
+ * Create an instance object with formatted user Activity mock data or user Activity data called by api.
+ * @class
+ */
 export class modelActivityData {
-  /**
-   * Create a new object formatting user Activity mock data or user Activity data called by api.
-   * @class
-   * @exports
-   */
-
   constructor(apiDataActivity) {
     this.userId = parseInt(apiDataActivity.userId);
     this.sessions = apiDataActivity.sessions;
   }
 
+  /**
+   * Static method used to structure data formatting
+   * @returns {object} - Object containing useful Activity data to exploit
+   */
   formatActivityData() {
-    /**
-     * Static method used to structure data formatting
-     * @return object - object containing useful data to exploit
-     */
-
     let objActivityData = {
       userId: this.userId,
+      /**
+       * Key containing weights values sorted in ascending order to easily use the min and max values in the barChart activity
+       * @type {array}
+       */
       sessions: this.sessions.sort(function (a, b) {
         return a.kilogram - b.kilogram;
       }),
@@ -102,11 +105,13 @@ export class modelActivityData {
 
     objActivityData.sessions.map(function (el) {
       el.day = String(el.day);
-      // Add the new key 'dayFormatted' for each object contained in array 'sessions'
+      /**
+       * Key containing the day number formatted on format 'x' if number <10 or 'xx' if number >=10
+       * @type {number | undefined}
+       */
       el.dayFormatted =
         el.day !== undefined
-          ? // Expected number on format 'x' if number < 10 or 'xx' if number is >= 10
-            parseFloat(el.day.split("-")[2].replace(/^0/, ""))
+          ? parseFloat(el.day.split("-")[2].replace(/^0/, ""))
           : undefined;
       el.kilogram = parseFloat(el.kilogram);
       el.calories = parseFloat(el.calories);
@@ -118,24 +123,26 @@ export class modelActivityData {
   }
 }
 
+/**
+ * Create an instance object with formatted user Sessions mock data or user Sessions data called by api.
+ * @class
+ */
 export class modelSessionsData {
-  /**
-   * Create a new object formatting user Sessions mock data or user Sessions data called by api.
-   * @class
-   * @exports
-   */
-
   constructor(apiDataSessions) {
     this.userId = parseInt(apiDataSessions.userId);
     this.sessions = apiDataSessions.sessions;
   }
 
+  /**
+   * Static method used to structure data formatting
+   * @returns {object} - Object containing useful Sessions data to exploit
+   */
   formatSessionsData() {
     /**
-     * Static method used to structure data formatting
-     * @return object - object containing useful data to exploit
+     * Array containing strings of the week's days
+     * @constant
+     * @type {array}
      */
-
     const days = [
       "Lundi",
       "Mardi",
@@ -152,8 +159,11 @@ export class modelSessionsData {
     };
 
     objSessionsData.sessions.map(function (el) {
-      // Add new key 'dayLabel" on format 'X' where 'X' is the first letter of week's days
       el.day = parseInt(el.day);
+      /**
+       * Key containing label of week's day on format 'X' where 'X' is the first letter of this day
+       * @type {string}
+       */
       el.dayLabel = String(days[el.day - 1][0]);
       el.sessionLength = parseInt(el.sessionLength);
 
@@ -164,12 +174,11 @@ export class modelSessionsData {
   }
 }
 
+/**
+ * Create an instance object with formatted user Performance mock data or user Performance data called by api.
+ * @class
+ */
 export class modelPerfData {
-  /**
-   * Create a new object formatting Performances user mock data or Performances user data called by api.
-   * @class
-   * @exports
-   */
   constructor(apiDataPerf) {
     this.userId = parseInt(apiDataPerf.userId);
     this.kind = apiDataPerf.kind;
@@ -180,12 +189,16 @@ export class modelPerfData {
     });
   }
 
+  /**
+   * Static method used to structure data formatting
+   * @returns {object} - Object containing useful Performance data to exploit
+   */
   formatPerfData() {
     /**
-     * Static method used to structure data formatting
-     * @return object - object containing useful data to exploit
+     * Array containing strings of french label's kind
+     * @constant
+     * @type {array}
      */
-
     const frenchKind = [
       "Cardio",
       "Energie",
@@ -197,7 +210,10 @@ export class modelPerfData {
 
     let objPerfData = {
       userId: this.userId,
-      // Array containing kind values and french labels equivalences
+      /**
+       * Key containing an array with all the kind values data with their french labels equivalences
+       * @type {array}
+       */
       kind: Object.keys(this.kind).map(function (key) {
         return [Number(key), frenchKind[key - 1]];
       }),
@@ -205,7 +221,10 @@ export class modelPerfData {
     };
 
     objPerfData.data.forEach((el) => {
-      // Key containing french label kind corresponding to data value
+      /**
+       * Key containing the french label corresponding to the current data value
+       * @type {string}
+       */
       el.subject = String(
         objPerfData.kind.find((item) => item[0] === el.kind)[1]
       );

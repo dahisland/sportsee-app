@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * Component React to customize the Sessions line chart legend
+ * @component
+ */
 const LineChartLegend = () => {
   return (
     <figcaption className="lineChartSessions_figcaption">

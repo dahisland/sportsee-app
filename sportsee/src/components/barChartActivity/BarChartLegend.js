@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/**
+ * Component React to customize the Activity bar chart legend
+ * @component
+ */
 const BarChartLegend = ({ payload }) => {
   return (
     <figcaption className="barChartActivity_figcaption">
@@ -22,6 +26,9 @@ const BarChartLegend = ({ payload }) => {
 };
 
 BarChartLegend.propTypes = {
+  /**
+   * Recharts props value containing user's activity data used for the bar chart and internally formatted by Recharts
+   */
   payload: PropTypes.array,
 };
 

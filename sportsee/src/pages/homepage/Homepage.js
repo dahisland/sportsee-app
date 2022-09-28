@@ -15,6 +15,7 @@ import {
   sessionsUseState,
   perfUseState,
 } from "../../data/initUseStates";
+
 // // IMPORT CALLS API DATA
 import {
   getMainUserData,
@@ -22,6 +23,7 @@ import {
   getSessionsData,
   getPerformanceData,
 } from "../../data/getDataAPI";
+
 // // IMPORT MOCK DATA
 // import {
 //   getMainMockedData,
@@ -30,12 +32,34 @@ import {
 //   getPerfMockedData,
 // } from "../../data/getDataMocked";
 
+/**
+ * Component React for display page Homepage with charts and welcoming message
+ * @component
+ */
 const Homepage = () => {
+  /**
+   * User's id number collected by a hook in the page's URL
+   * @constant
+   * @type {number}
+   */
   const { userID } = useParams();
-
+  /**
+   * Hook to define calls api status
+   * @constant
+   * @type {boolean}
+   */
   const [fetchData, setFetchData] = useState(false);
+  /**
+   * Hook to define message error when calls api data fails
+   * @constant
+   * @type {string}
+   */
   const [apiError, setApiError] = useState("");
-
+  /**
+   * Hook to define loader status.
+   * @constant
+   * @type {boolean}
+   */
   const [loader, setLoader] = useState(true);
 
   const [dataUser, setDataUser] = useState(userUseState);
@@ -46,31 +70,6 @@ const Homepage = () => {
   useEffect(() => {
     setLoader(true);
     window.scrollTo(0, 0);
-    // // USE DATA CALLED BY API
-    // async function updateMainData() {
-    //   const data = await getMainUserData(userID);
-    //   setDataUser(data);
-    //   setFetchData(true);
-    // }
-    // async function updateActivityData() {
-    //   const data = await getActivityData(userID);
-    //   setDataActivity(data);
-    //   setFetchData(true);
-    // }
-    // async function updateSessionsData() {
-    //   const data = await getSessionsData(userID);
-    //   setDataSessions(data);
-    //   setFetchData(true);
-    // }
-    // async function updatePerformanceData() {
-    //   const data = await getPerformanceData(userID);
-    //   setDataPerf(data);
-    //   setFetchData(true);
-    // }
-    // updateMainData();
-    // updateActivityData();
-    // updateSessionsData();
-    // updatePerformanceData();
 
     // // USE DATA MOCKED
     // setDataUser(getMainMockedData(userID));
@@ -78,7 +77,11 @@ const Homepage = () => {
     // setDataSessions(getSessionsMockedData(userID));
     // setDataPerf(getPerfMockedData(userID));
 
-    // // USE DATA CALLED BY API WITH PROMISE.ALL
+    /**
+     * Calls from api and set each data used for charts
+     * @async
+     * @returns {void}
+     */
     let getAllData = async () => {
       try {
         let promiseAllData = await Promise.all([

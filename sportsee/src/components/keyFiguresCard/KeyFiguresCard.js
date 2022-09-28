@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/**
+ * Component React for display the proteins, lipids, calories and carbohydrates cards informations
+ * @component
+ */
 const KeyFiguresCard = ({ image, name, value }) => {
   return (
     <div className="keyFigures_card">
@@ -16,8 +20,17 @@ const KeyFiguresCard = ({ image, name, value }) => {
 };
 
 KeyFiguresCard.propTypes = {
+  /**
+   * URL of icon image
+   */
   image: PropTypes.string,
+  /**
+   * name of category
+   */
   name: PropTypes.string,
+  /**
+   * User's value
+   */
   value: PropTypes.string,
 };
 
