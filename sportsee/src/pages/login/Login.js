@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 
 /**
- * Component React for display page Login
- * Page Login will be necessary for user authentification
+ * Component React for display page Login.
+ * Page Login will be necessary for user authentification.
  * For the moment, the page shows only 2 links to insert user's id in URL and
- * display data corresponding for each user in his homepage
+ * display data corresponding for each user in his homepage.
  * @component
  */
 const Login = () => {

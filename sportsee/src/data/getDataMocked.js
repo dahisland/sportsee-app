@@ -1,6 +1,6 @@
 /**
- * Javascript file containing functions used to collect data by using mock data
- * This file can be used to develop, implement and test code without calling data by api
+ * Javascript file containing functions used to collect data by using mock data.
+ * This file can be used to develop, implement and test code without calling data by api.
  * @file
  */
 
