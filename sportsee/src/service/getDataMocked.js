@@ -9,13 +9,13 @@ import {
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
   USER_PERFORMANCE,
-} from "./dataMock";
+} from "../data/dataMock";
 import {
   modelUserMainData,
   modelActivityData,
   modelSessionsData,
   modelPerfData,
-} from "./modelDatas";
+} from "../data/modelDatas";
 
 /**
  * Function to get main user mock data

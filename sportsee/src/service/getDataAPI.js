@@ -8,7 +8,7 @@ import {
   modelActivityData,
   modelSessionsData,
   modelPerfData,
-} from "./modelDatas";
+} from "../data/modelDatas";
 
 /**
  * Function to get main user data by calling api

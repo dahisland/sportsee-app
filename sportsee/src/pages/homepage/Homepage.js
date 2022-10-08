@@ -7,12 +7,12 @@ import FetchError from "../../components/fetchError/FetchError";
 import logo from "../../assets/icon-logo.svg";
 
 // // IMPORT CALLS API DATA
-import { getMainUserData } from "../../data/getDataAPI";
+import { getMainUserData } from "../../service/getDataAPI";
 
 // // IMPORT MOCK DATA
 // import {
 //   getMainMockedData,
-// } from "../../data/getDataMocked";
+// } from "../../service/getDataMocked";
 
 /**
  * Component React for display page Homepage
@@ -49,6 +49,9 @@ const Homepage = () => {
   useEffect(() => {
     setLoader(true);
     window.scrollTo(0, 0);
+
+    // // USE DATA MOCKED
+    // setDataUser(getMainMockedData(userID));
 
     /**
      * Calls from api and set each data used for charts

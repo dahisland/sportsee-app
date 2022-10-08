@@ -22,7 +22,7 @@ import {
   getActivityData,
   getSessionsData,
   getPerformanceData,
-} from "../../data/getDataAPI";
+} from "../../service/getDataAPI";
 
 // // IMPORT MOCK DATA
 // import {
@@ -30,7 +30,7 @@ import {
 //   getActivityMockedData,
 //   getSessionsMockedData,
 //   getPerfMockedData,
-// } from "../../data/getDataMocked";
+// } from "../../service/getDataMocked";
 
 /**
  * Component React for display page Profile with charts and welcoming message
