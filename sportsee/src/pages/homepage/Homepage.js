@@ -2,38 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HorizontalNav from "../../components/horizontalNav/HorizontalNav";
 import VerticalNav from "../../components/verticalNav/VerticalNav";
-import SectionHello from "../../components/sectionHello/SectionHello";
-import KeyFiguresCard from "../../components/keyFiguresCard/KeyFiguresCard";
-import BarChartActivity from "../../components/barChartActivity/BarChartActivity";
-import RadialBarScore from "../../components/radialBarScore/RadialBarScore";
-import LineChartSessions from "../../components/lineChartSessions/LineChartSessions";
-import RadarChartPerf from "../../components/radarChartPerformance/RadarChartPerf";
+import { userUseState } from "../../data/initUseStates";
 import FetchError from "../../components/fetchError/FetchError";
-import {
-  userUseState,
-  activityUseState,
-  sessionsUseState,
-  perfUseState,
-} from "../../data/initUseStates";
+import logo from "../../assets/icon-logo.svg";
 
 // // IMPORT CALLS API DATA
-import {
-  getMainUserData,
-  getActivityData,
-  getSessionsData,
-  getPerformanceData,
-} from "../../data/getDataAPI";
+import { getMainUserData } from "../../data/getDataAPI";
 
 // // IMPORT MOCK DATA
 // import {
 //   getMainMockedData,
-//   getActivityMockedData,
-//   getSessionsMockedData,
-//   getPerfMockedData,
 // } from "../../data/getDataMocked";
 
 /**
- * Component React for display page Homepage with charts and welcoming message
+ * Component React for display page Homepage
  * @component
  */
 const Homepage = () => {
@@ -63,19 +45,10 @@ const Homepage = () => {
   const [loader, setLoader] = useState(true);
 
   const [dataUser, setDataUser] = useState(userUseState);
-  const [dataActivity, setDataActivity] = useState(activityUseState);
-  const [dataSessions, setDataSessions] = useState(sessionsUseState);
-  const [dataPerf, setDataPerf] = useState(perfUseState);
 
   useEffect(() => {
     setLoader(true);
     window.scrollTo(0, 0);
-
-    // // USE DATA MOCKED
-    // setDataUser(getMainMockedData(userID));
-    // setDataActivity(getActivityMockedData(userID));
-    // setDataSessions(getSessionsMockedData(userID));
-    // setDataPerf(getPerfMockedData(userID));
 
     /**
      * Calls from api and set each data used for charts
@@ -84,17 +57,9 @@ const Homepage = () => {
      */
     let getAllData = async () => {
       try {
-        let promiseAllData = await Promise.all([
-          getMainUserData(userID),
-          getActivityData(userID),
-          getSessionsData(userID),
-          getPerformanceData(userID),
-        ]);
+        let promiseAllData = await Promise.all([getMainUserData(userID)]);
         setFetchData(true);
         setDataUser(promiseAllData[0]);
-        setDataActivity(promiseAllData[1]);
-        setDataSessions(promiseAllData[2]);
-        setDataPerf(promiseAllData[3]);
       } catch (error) {
         setLoader(false);
         setFetchData(false);
@@ -111,37 +76,13 @@ const Homepage = () => {
       <VerticalNav />
       {fetchData === true ? (
         <main className="pageHome_main">
-          <SectionHello name={dataUser.userInfos.firstName} />
-
-          <section className="mainSection_statistics">
-            <article className="statistics_charts">
-              <div className="charts_flexboxContainer">
-                <BarChartActivity
-                  dataActivity={dataActivity.sessions}
-                ></BarChartActivity>
-
-                <LineChartSessions
-                  dataSessions={dataSessions.sessions}
-                ></LineChartSessions>
-
-                <RadarChartPerf dataPerf={dataPerf.data}></RadarChartPerf>
-
-                <RadialBarScore
-                  dataScore={dataUser.todayScore}
-                ></RadialBarScore>
-              </div>
-            </article>
-
-            <article className="statistics_keyFigures">
-              {dataUser.keyData.map((item, index) => (
-                <KeyFiguresCard
-                  image={item.icon}
-                  name={item.label}
-                  value={item.count}
-                  key={item.label + index}
-                />
-              ))}
-            </article>
+          <section className="mainSection_welcome">
+            <h1>
+              Bienvenue sur votre espace personnel{" "}
+              <span>{dataUser.userInfos.firstName}</span>
+            </h1>
+            <img src={logo} alt="logo sportsee" width="200px" />
+            <p className="logo_title">SportSee</p>
           </section>
         </main>
       ) : (

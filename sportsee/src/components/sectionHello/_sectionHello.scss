@@ -2,7 +2,6 @@
 
 // section welcome
 .mainSection_hello {
-  @include mainPaddingContent;
   margin-bottom: 60px;
   h1 {
     font-size: map-get($sizes, max);

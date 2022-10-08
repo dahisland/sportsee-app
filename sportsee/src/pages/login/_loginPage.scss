@@ -13,6 +13,7 @@
   }
   .pageLogin_main {
     text-align: center;
+    padding: 0px;
     h1 {
       font-size: map-get($sizes, xl);
       font-weight: map-get($weights, slim);

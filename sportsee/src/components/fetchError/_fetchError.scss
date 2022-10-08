@@ -1,7 +1,6 @@
 @import "../../style/utils";
 
 .mainSection_fetchError {
-  @include mainPaddingContent;
   margin-top: 70px;
   text-align: center;
   .fetchError_message {
