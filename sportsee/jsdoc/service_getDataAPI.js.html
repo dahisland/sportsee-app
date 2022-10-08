@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/loader/Loader.js</title>
+    <title>JSDoc: Source: service/getDataAPI.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/loader/Loader.js</h1>
+    <h1 class="page-title">Source: service/getDataAPI.js</h1>
 
     
 
@@ -26,25 +26,79 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
+            <pre class="prettyprint source linenums"><code>/**
+ * Javascript file containing functions used to fetch data by using calls to api
+ * @file
+ */
+
+import {
+  modelUserMainData,
+  modelActivityData,
+  modelSessionsData,
+  modelPerfData,
+} from "../data/modelDatas";
 
 /**
- * Component React for display a loader during data calls
- * @component
+ * Function to get main user data by calling api
+ * @param {number} userId - Number collected in the page's url by using a hook
+ * @async
+ * @returns {object} - Object containing formatted data called
  */
-const Loader = () => {
-  return (
-    &lt;div className="loader">
-      &lt;div className="loader_container">
-        &lt;div className="loaderContainer_spinner">
-          &lt;div className="spinner_anim">&lt;/div>
-        &lt;/div>
-      &lt;/div>
-    &lt;/div>
-  );
+export const getMainUserData = async (userID) => {
+  const mainData = await fetch(`http://localhost:3000/user/${userID}`);
+  const mainDataJson = await mainData.json();
+  const formatMainDataJson = new modelUserMainData(mainDataJson.data);
+
+  return formatMainDataJson.formatUserMainData();
 };
 
-export default Loader;
+/**
+ * Function to get user Activity data by calling api
+ * @param {number} userId - Number collected in the page's url by using a hook
+ * @async
+ * @returns {object} - Object containing formatted data called
+ */
+export const getActivityData = async (userID) => {
+  const activityData = await fetch(
+    `http://localhost:3000/user/${userID}/activity`
+  );
+  const activityDataJson = await activityData.json();
+  const formatActivityJson = new modelActivityData(activityDataJson.data);
+
+  return formatActivityJson.formatActivityData();
+};
+
+/**
+ * Function to get user Sessions data by calling api
+ * @param {number} userId - Number collected in the page's url by using a hook
+ * @async
+ * @returns {object} - Object containing formatted data called
+ */
+export const getSessionsData = async (userID) => {
+  const sessionsData = await fetch(
+    `http://localhost:3000/user/${userID}/average-sessions`
+  );
+  const sessionsDataJson = await sessionsData.json();
+  const formatSessionsJson = new modelSessionsData(sessionsDataJson.data);
+
+  return formatSessionsJson.formatSessionsData();
+};
+
+/**
+ * Function to get user Performance data by calling api
+ * @param {number} userId - Number collected in the page's url by using a hook
+ * @async
+ * @returns {object} - Object containing formatted data called
+ */
+export const getPerformanceData = async (userID) => {
+  const perfData = await fetch(
+    `http://localhost:3000/user/${userID}/performance`
+  );
+  const perfDataJson = await perfData.json();
+  const formatPerfJson = new modelPerfData(perfDataJson.data);
+
+  return formatPerfJson.formatPerfData();
+};
 </code></pre>
         </article>
     </section>
