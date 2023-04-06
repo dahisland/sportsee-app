@@ -10,9 +10,7 @@ import logo from "../../assets/icon-logo.svg";
 import { getMainUserData } from "../../service/getDataAPI";
 
 // // IMPORT MOCK DATA
-// import {
-//   getMainMockedData,
-// } from "../../service/getDataMocked";
+// import { getMainMockedData } from "../../service/getDataMocked";
 
 /**
  * Component React for display page Homepage
