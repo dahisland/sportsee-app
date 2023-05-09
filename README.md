@@ -27,7 +27,7 @@ his application with graphics and statistics following.
 
 ### \* STEP 1 : RUN API
 
-- Fork this repository : https://github.com/dahisland/MyriamMornet_12_092022 to your Github account.
+- Fork this repository : https://github.com/dahisland/sportsee-fullstack to your Github account.
 - Clone it to the local folder's project of your choice in your computer.
 - Open the folder in your favorite framework editor.
 - Use the command `cd sportsee-backend` to change your working directory to the backend folder.
@@ -61,5 +61,9 @@ If you want to install api by using Docker, you can have more instructions on th
 
 Local url by default is : `http://localhost:3006/`.
 
-You can customize local port by changing it on your local file [sportsee/package.json](https://github.com/dahisland/MyriamMornet_12_092022/blob/main/sportsee/package.json) (line 20) : <br/>
+You can customize local port by changing it on your local file [sportsee/package.json](https://github.com/dahisland/sportsee-fullstack/blob/main/sportsee/package.json) (line 20) : <br/>
 `"scripts": {"start": "set PORT=3006 && react-scripts start"}`.
+
+## GIT PAGES
+
+A version using mock data is hosted [here](https://dahisland.github.io/sportsee/).
